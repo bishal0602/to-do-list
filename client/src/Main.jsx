@@ -19,7 +19,7 @@ const Main = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, ease: "easeOut", duration: 1 }}
-        className="text-[3rem] lg:text-[6rem] md:text-[5rem]  mb-[1.5rem] md:mb-[2rem] lg:mb-[3rem]  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600"
+        className="text-[3rem] lg:text-[6rem] md:text-[5rem]  mb-[3rem] md:mb-[4rem] lg:mb-[6rem]  font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600"
       >
         To-do List App
       </motion.h1>
@@ -28,9 +28,10 @@ const Main = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, ease: "easeOut", duration: 1 }}
-          className="text-2xl lg:text-3xl flex align-center justify-center mt-[1.5rem] md:mt-[2rem] lg:mt-[3rem] text-gray-500 hover:text-blue-500"
+          className="text-2xl lg:text-3xl flex items-center justify-center mt-[0rem] md:mt-[0rem] lg:mt-[0rem] text-gray-500 hover:text-blue-500"
         >
-          Click to proceed <AiOutlineDoubleRight className="pt-[0.5rem]" />
+          Click to proceed{" "}
+          <AiOutlineDoubleRight className="pl-[0.5rem] w-[2rem]" />
         </motion.div>
       </Link>
     </motion.div>

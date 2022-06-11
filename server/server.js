@@ -9,7 +9,16 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/test", (req, res) => {
-  res.send("Sending Posts!");
+  res.send([
+    {
+      name: "this is my name",
+      age: "this is my age",
+    },
+    {
+      name: "this is also my name",
+      age: "this is also my age",
+    },
+  ]);
 });
 
 app.listen(process.env.PORT || 5000, () => {
