@@ -1,3 +1,5 @@
-to-do-list app
+# Front End Code for To-do List application
 
-// will update once deployed
+Currently hosted at:
+
+# <a href="https://todolistapp-bishal.netlify.app/">https://todolistapp-bishal.netlify.app/</a>

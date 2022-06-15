@@ -1,33 +1,31 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CreateTodo from "./components/CreateTodo";
-// import axios from "axios";
-// import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import ToDo from "./components/ToDo";
 import { Link } from "react-router-dom";
+import { RefreshContext } from "./RefreshContext";
 
 const ToDos = () => {
   //Getting Todos from API
 
-  // const ToDo = () => {
-  //   const [todos, setTodos] = useState([]);
-  //   useEffect(() => {
-  //     axios.get("http://localhost:5000/test").then((res) => {
-  //       console.log(res.data);
-  //       setData(res.data);
-  //     });
-  //   }, []);
+  const [refresh, setRefresh] = React.useContext(RefreshContext);
 
-  //Temporary
-  const todos = [
-    { id: 1, title: "Finish this project" },
-    { id: 2, title: "Do my asssignments!" },
-    { id: 3, title: "Go to market" },
-    { id: 4, title: "Clean my room" },
-    { id: 5, title: "Get a haircut" },
-    { id: 6, title: "Pickup friend" },
-    { id: 7, title: "Buy some snacks" },
-  ];
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://todolistexpressapi.herokuapp.com/gettodos")
+      .then((res) => {
+        // console.log(res.data);
+        setTodos(res.data);
+        // console.log(todos[0]._id);
+      })
+      .catch((error) => {
+        console.log(`GET request failed: ${error}`);
+      });
+  }, [, refresh]);
+
   return (
     <motion.div
       className="font-poppins min-h-[100vh] w-[100vw] my-6 mx-auto grid justify-center place-content grid-rows-[max-content_max-content_auto] gap-y-4 text-center"
@@ -46,11 +44,26 @@ const ToDos = () => {
         <h2 className="text-left text-2xl bold text-slate-600 mb-4">
           Your Todos:{" "}
         </h2>
-        <div className="grid gap-y-5">
-          {todos.map((todo) => (
-            <ToDo title={todo.title} key={todo.id} id={todo.id} />
-          ))}
-        </div>
+        {todos.length > 0 ? (
+          <div className="grid gap-y-5">
+            {todos.map((todo) => (
+              <ToDo title={todo.todo} id={todo._id} />
+            ))}
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 2 }}
+            className="grid place-items-center"
+          >
+            <h3 className="text-purple-800 my-4 text-lg md:text-xl">
+              Looks like you have no to-dos !<br />
+              Add one!
+            </h3>
+            <img src="emptyboxandshelf.svg" alt="Empty" className="w-4/5" />
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );
