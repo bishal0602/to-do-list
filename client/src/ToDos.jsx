@@ -54,7 +54,7 @@ const ToDos = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 2 }}
+            transition={{ delay: 0.5, duration: 2 }}
             className="grid place-items-center"
           >
             <h3 className="text-purple-800 my-4 text-lg md:text-xl">

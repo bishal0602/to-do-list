@@ -34,10 +34,10 @@ const CreateTodo = () => {
         name="todo"
         id="todo"
         placeholder="Enter To-do"
-        className="h-4/5 w-[87%] p-2 border-none bg-transparent"
+        className="h-4/5 w-[87%] p-2 border-none bg-transparent select-text"
       ></input>
       <FiArrowRightCircle
-        className="h-4/5 w-[10%] text-violet-500 hover:text-pink-600"
+        className="h-4/5 w-[10%] text-violet-500 hover:text-pink-600 cursor:pointer"
         onClick={createtodo}
       />
     </div>
