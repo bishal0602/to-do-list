@@ -6,6 +6,10 @@ This is a simple to-do list application made using MongoDB, Express, ReactJS, Ta
 
 # <a href="https://todolistapp-bishal.netlify.app/">Click here!</a>
 
+# Snapshot
+
+<img src="https://imgur.com/a/Yp2iMjv" alt="To do List App"/>
+
 <hr></hr>
 
 ## Features
