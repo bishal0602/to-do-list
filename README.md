@@ -8,7 +8,7 @@ This is a simple to-do list application made using MongoDB, Express, ReactJS, Ta
 
 # Snapshot
 
-<img src="https://imgur.com/a/Yp2iMjv" alt="To do List App"/>
+<img src="https://i.imgur.com/avi9sKC.gif" alt="To do List App"/>
 
 <hr></hr>
 
