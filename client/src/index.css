@@ -20,3 +20,9 @@ html,
 body {
   overflow-x: hidden;
 }
+
+/*To remove undesired input box auto coloring by browser*/
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}

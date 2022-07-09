@@ -7,13 +7,20 @@ const API_URL = "https://todolistexpressapi.herokuapp.com/createtodo";
 
 const CreateTodo = () => {
   const [refresh, setRefresh] = React.useContext(RefreshContext);
+
+  const [buttonPress, setButtonPress] = React.useState(false); // for press button animation
+
   const createtodo = () => {
+    setButtonPress(true);
+    setTimeout(() => {
+      setButtonPress(false);
+    }, 1000);
     const todo = document.getElementById("todo").value;
+    document.getElementById("todo").value = "";
     // console.log(todo);
     if (todo === "" || todo === " " || todo === undefined || todo === null) {
       return;
     }
-    // console.log("Test");
     axios
       .post(API_URL, {
         todo: todo,
@@ -21,7 +28,6 @@ const CreateTodo = () => {
       .then((response) => {
         // console.log(response.data);
         setRefresh((preVal) => !preVal);
-        document.getElementById("todo").value = "";
       })
       .catch((error) => {
         console.log(`POST request failed: ${error}`);
@@ -35,9 +41,16 @@ const CreateTodo = () => {
         id="todo"
         placeholder="Enter To-do"
         className="h-4/5 w-[87%] p-2 border-none bg-transparent select-text"
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            createtodo();
+          }
+        }}
       ></input>
       <FiArrowRightCircle
-        className="h-4/5 w-[10%] text-violet-500 hover:text-pink-600 cursor:pointer"
+        className={` ${
+          buttonPress && "animate-ping opacity-60"
+        } h-4/5 w-[10%] text-violet-500 hover:text-pink-600 cursor:pointer`}
         onClick={createtodo}
       />
     </div>
